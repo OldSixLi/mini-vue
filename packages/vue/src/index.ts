@@ -5,7 +5,7 @@ import { registerRuntimeCompiler } from "@mini-vue/runtime-dom";
 import { baseCompile } from "@mini-vue/compiler-core";
 
 export * from "@mini-vue/runtime-dom";
-
+console.log('TODO');
 
 function compileToFunction(template, options = {}) {
   const { code } = baseCompile(template, options);

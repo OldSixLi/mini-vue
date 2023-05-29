@@ -9,7 +9,8 @@ const ProviderOne = {
   setup() {
     provide("foo", "foo");
     provide("bar", "bar");
-    return () => h(ProviderTwo);
+    // return () => h(ProviderTwo);
+    return () => h("p",{},("6666"));
   },
 };
 

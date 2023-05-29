@@ -153,7 +153,7 @@ const PublicInstanceProxyHandlers = {
     },
     set({ _: instance }, key, value) {
         const { setupState } = instance;
-        if (setupState !== {} && hasOwn(setupState, key)) {
+        if (hasOwn(setupState, key)) {
             setupState[key] = value;
         }
         return true;
@@ -1540,6 +1540,7 @@ function baseCompile(template, options) {
     return generate(ast);
 }
 
+console.log('TODO');
 function compileToFunction(template, options = {}) {
     const { code } = baseCompile(template, options);
     const render = new Function("Vue", code)(runtimeDom);

@@ -45,6 +45,9 @@ function createGetter(isReadonly = false, shallow = false) {
 
     if (!isReadonly) {
       // 在触发 get 的时候进行依赖收集
+      // 如果是readonly的数据，只需要在读取时直接读取对应的值就行
+      // 因为不涉及到触发更新，所以就不用收集effect，最终也就不用进行依赖收集的操作了
+      // 其实二者使用的getter原理基本一样 只不过用一个boolean值区分到底谁是readonly
       track(target, "get", key);
     }
 

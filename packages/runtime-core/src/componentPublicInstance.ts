@@ -40,7 +40,7 @@ export const PublicInstanceProxyHandlers = {
   set({ _: instance }, key, value) {
     const { setupState } = instance;
 
-    if (setupState !== {} && hasOwn(setupState, key)) {
+    if ( hasOwn(setupState, key)) {
       // 有的话 那么就直接赋值
       setupState[key] = value;
     }

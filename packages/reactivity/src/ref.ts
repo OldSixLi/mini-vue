@@ -19,7 +19,7 @@ export class RefImpl {
 
   get value() {
     // 收集依赖
-    trackRefValue(this);
+    trackRefValue(this); // 在进行msg++时，会先进行依赖收集，然后解耦，然后再触发更新
     return this._value;
   }
 
@@ -51,6 +51,8 @@ function createRef(value) {
 }
 
 export function triggerRefValue(ref) {
+  // 找到所有的当前变量的依赖 然后进行逐个的更新操作
+  // 由此开始进入到effect.scheduler()等操作中
   triggerEffects(ref.dep);
 }
 
